@@ -25,7 +25,7 @@ Run normally (in foreground, outputs to STDOUT):
 !p  				get random proxy server from list
 !p -c 				total number of proxy servers received from RSS feed
 !p -h				get random proxy server from list (with hostname)
-!p +pattern+			search for +pattern+ (for country, speed, etc). Pattern is regular expression.
-!p -h +pattern+			-
+!p <pattern>			search for <pattern> (for country, speed, etc). Pattern is regular expression.
+!p -h <pattern>			-
 ----
 
