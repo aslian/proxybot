@@ -1,6 +1,6 @@
 = proxybot
 
-Tiny bash(shell)+ruby script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to STDOUT or IRC channel(s).
+Tiny bash+ruby script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to STDOUT or IRC channel(s).
 
 == Requirements
 
@@ -11,7 +11,7 @@ Tiny bash(shell)+ruby script that collects free proxy servers from http://rosins
 == How to run
 ----
 Run as daemon (in background):
-2>/dev/null ./formatted_tail.sh | &>/dev/null ./ircify +irc_server+ +chan1+ +chan2+...
+2>/dev/null ./formatted_tail.sh | &>/dev/null ./ircify irc_server chan1 chan2...
 
 Run normally (in foreground, outputs to IRC):
 ./formatted_tail.sh | ./ircify irc_server chan1 chan2...
