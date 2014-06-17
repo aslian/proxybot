@@ -22,7 +22,7 @@ bot = Cinch::Bot.new do
 		c.server = ARGV[0] || 'localhost'
 	end
 
-	on :message, /\^!p(.*)?/ do |m, args|
+	on :message, /^!p(.*)?/ do |m, args|
 		list = $list
 		if args[/^\s-h\s/]
 			list = $list.grep /[a-z.-]+:/

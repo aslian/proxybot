@@ -10,7 +10,7 @@
 # (c) github.com/aslian, 2014
 #
 
-./tail.sh \
+./tail \
 | ruby -e '$stdout.sync = true; clean = lambda {|x| x.map(&:strip).reject(&:empty?)}; while i=Array.new(3){gets} do  printf("%s   [%s]\n", *clean[i])   end' \
 #| egrep --line-buffered "[a-z.-]+:"
 
