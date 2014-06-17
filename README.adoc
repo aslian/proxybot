@@ -11,13 +11,13 @@ Tiny bash+ruby script that collects free proxy servers from http://rosinstrument
 === How to run
 ----
 Run as daemon (in background):
-2>/dev/null ./formatted_tail.sh | &>/dev/null ./ircify irc_server chan1 chan2...
+2>/dev/null ./formatted_tail | &>/dev/null ./ircify irc_server chan1 chan2...
 
 Run normally (in foreground, outputs to IRC):
-./formatted_tail.sh | ./ircify irc_server chan1 chan2...
+./formatted_tail | ./ircify irc_server chan1 chan2...
 
 Run normally (in foreground, outputs to STDOUT):
-./formatted_tail.sh
+./formatted_tail
 ----
 
 === Public commands
