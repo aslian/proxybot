@@ -34,8 +34,8 @@ bot = Cinch::Bot.new do
 			m.reply '%d. %s' % lambda { r = list.sample; [list.index(r)+1, r] }[]
 			next
 		elsif args == '-c'
-	        m.reply '%d proxies indexed' % list.size
-            next
+			m.reply '%d proxies indexed' % list.size
+			next
 		else
 			# Searching..
 			pattern = Regexp.new args.gsub('#{', '')
@@ -53,8 +53,8 @@ bot = Cinch::Bot.new do
 					m.reply '%d. %s' % [list.index(r)+1, r]
 				}
 			end # show results
-		end
-	end 
+		end # if clause
+	end # bind
 
 end
 
