@@ -1,0 +1,37 @@
+= proxybot
+
+Tiny bash(shell)+ruby script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to STDOUT or IRC channel(s).
+
+== Requirements
+
+* Working http://rvm.io[Ruby] interpreter
+* A http://rubygems.org/gems/cinch[Cinch] http://rubygems.org[gem] installed
+* https://github.com/flok99/rsstail[Rsstail] tool installed
+
+== How to run
+----
+Run as daemon (in background):
+2>/dev/null ./formatted_tail.sh | &>/dev/null ./ircify +irc_server+ +chan1+ +chan2+...
+
+Run normally (in foreground, outputs to IRC):
+./formatted_tail.sh | ./ircify irc_server chan1 chan2...
+
+Run normally (in foreground, outputs to STDOUT):
+./formatted_tail.sh
+----
+
+== Public commands
+----
+!p  				get random proxy server from list
+!p -c 				total number of proxy servers received from RSS feed
+!p -h				get random proxy server from list (with hostname)
+<<<<<<< HEAD
+!p +pattern+				search for +pattern+ (for country, speed, etc). Pattern is regular expression.
+!p -h +pattern+				-
+=======
+!p +pattern+		search for +pattern+ (for country, speed, etc). Pattern is regular expression.
+!p -h +pattern+		-
+>>>>>>> bf2bb47c6612dbbbfbb430cdecd80af117fc69ec
+----
+
+

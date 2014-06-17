@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+#
+#                                       █               ▄
+#    ▄▄▄▄    ▄ ▄▄   ▄▄▄   ▄   ▄  ▄   ▄  █▄▄▄    ▄▄▄   ▄▄█▄▄
+#    █▀ ▀█   █▀  ▀ █▀ ▀█   █▄█   ▀▄ ▄▀  █▀ ▀█  █▀ ▀█    █
+#    █   █   █     █   █   ▄█▄    █▄█   █   █  █   █    █
+#    ██▄█▀   █     ▀█▄█▀  ▄▀ ▀▄   ▀█    ██▄█▀  ▀█▄█▀    ▀▄▄
+#    █                            ▄▀
+#    ▀                           ▀▀
+#   (c) github.com/aslian, 2014
+#
+
+require 'cinch'
+
+bot = Cinch::Bot.new do
+	configure do |c|
+		c.nick = "proxybot"
+		c.user = "proxybot"
+		c.realname = "proxybot"
+
+		c.channels = ARGV[1..-1].map{|c| "##{c}" } rescue %w(#bots)
+		c.server = ARGV[0] || 'localhost'
+	end
+
+	on :message, /\^!p(.*)?/ do |m, args|
+		list = $list
+		if args[/^\s-h\s/]
+			list = $list.grep /[a-z.-]+:/
+		end
+
+		args.strip!
+
+		if args.empty? || args == '-h'
+			m.reply '%d. %s' % lambda { r = list.sample; [list.index(r)+1, r] }[]
+			next
+		elsif args == '-c'
+	        m.reply '%d proxies indexed' % list.size
+            next
+		else
+			# Searching..
+			pattern = Regexp.new args.gsub('#{', '')
+			if args[/^-h\s/]
+				pattern = Regexp.new args.gsub('#{', '').sub('-h ', '')
+			end
+			results = list.grep pattern
+
+			if results.empty?
+				m.reply 'no results', true
+				next
+			else
+				m.reply '%d match(es) found' % results.size
+				results.each {|r|
+					m.reply '%d. %s' % [list.index(r)+1, r]
+				}
+			end # show results
+		end
+	end 
+
+end
+
+bot.loggers.level = :info
+$list = []
+
+Thread.new do
+	bot.start
+end
+
+while $list << $stdin.gets do
+	#bot.channels.map{|chan| chan.send $list.last}
+end
