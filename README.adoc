@@ -2,13 +2,13 @@
 
 Tiny bash+ruby script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to STDOUT or IRC channel(s).
 
-== Requirements
+=== Requirements
 
 * Working http://rvm.io[Ruby] interpreter
 * A http://rubygems.org/gems/cinch[Cinch] http://rubygems.org[gem] installed
 * https://github.com/flok99/rsstail[Rsstail] tool installed
 
-== How to run
+=== How to run
 ----
 Run as daemon (in background):
 2>/dev/null ./formatted_tail.sh | &>/dev/null ./ircify irc_server chan1 chan2...
@@ -20,7 +20,7 @@ Run normally (in foreground, outputs to STDOUT):
 ./formatted_tail.sh
 ----
 
-== Public commands
+=== Public commands
 ----
 !p  				get random proxy server from list
 !p -c 				total number of proxy servers received from RSS feed
