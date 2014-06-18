@@ -55,7 +55,6 @@ bot = Cinch::Bot.new do
 			end # show results
 		end # if clause
 	end # bind
-
 end
 
 bot.loggers.level = :info
@@ -66,5 +65,5 @@ Thread.new do
 end
 
 while $list << $stdin.gets do
-	#bot.channels.map{|chan| chan.send $list.last}
+#	bot.channels.map{|chan| chan.send $list.last}
 end

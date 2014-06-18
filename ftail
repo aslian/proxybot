@@ -10,7 +10,10 @@
 # (c) github.com/aslian, 2014
 #
 
-./tail \
-| ruby -e '$stdout.sync = true; clean = lambda {|x| x.map(&:strip).reject(&:empty?)}; while i=Array.new(3){gets} do  printf("%s   [%s]\n", *clean[i])   end' \
+# See rsstail -h for flag description
+FEED_URL="http://proxies.by/proxy/plab100.xml"
+
+ rsstail -u $FEED_URL -NdacH -i240 \
+ | ruby -e '$stdout.sync = true; strip = lambda {|x| x.map(&:strip).reject(&:empty?)}; while i=Array.new(3){gets} do printf("%s   [%s]\n", *strip[i]) end' \
 #| egrep --line-buffered "[a-z.-]+:"
 

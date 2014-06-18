@@ -14,13 +14,13 @@ Tiny script that collects free proxy servers from http://rosinstrument.com[Rosin
 === How to run
 ----
 Run as daemon (in background):
-2>/dev/null ./formatted_tail | &>/dev/null ./ircify irc_server chan1 chan2...
+2>/dev/null ./ftail | &>/dev/null ./irccat irc_server chan1 chan2
 
 Run normally (in foreground, outputs to IRC):
-./formatted_tail | ./ircify irc_server chan1 chan2...
+./ftail | ./irccat irc_server chan1 chan2
 
 Run normally (in foreground, outputs to STDOUT):
-./formatted_tail
+./ftail
 ----
 
 === Public commands
