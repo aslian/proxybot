@@ -16,7 +16,7 @@ bot = Cinch::Bot.new do
 	configure do |c|
 		c.nick = "proxybot"
 		c.user = "proxybot"
-		c.realname = "proxybot"
+		c.realname = "proxybot [https://github.com/aslian/proxybot]"
 
 		c.channels = ARGV[1..-1].map{|c| "##{c}" } rescue %w(#bots)
 		c.server = ARGV[0] || 'localhost'
@@ -49,9 +49,13 @@ bot = Cinch::Bot.new do
 				next
 			else
 				m.reply '%d match(es) found' % results.size
-				results.each {|r|
+				results.slice(0, 5).each {|r|
 					m.reply '%d. %s' % [list.index(r)+1, r]
 				}
+
+				if results.size > 5
+					m.reply '... some results are being omitted (%d)' % [results.size - 5]
+				end
 			end # show results
 		end # if clause
 	end # bind
