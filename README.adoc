@@ -1,7 +1,8 @@
 = proxybot
 
 image::http://deepweb.researchspaces.eu/data/screen.png[Work session example]
-Tiny bash+ruby script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to STDOUT or IRC channel(s).
+Fresh proxies in your IRC channel
+Tiny script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to stdout or IRC channel(s).
 
 === Requirements
 
