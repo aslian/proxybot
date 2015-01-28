@@ -1,6 +1,6 @@
 = proxybot
 
-image::http://deepweb.researchspaces.eu/data/screen.png[Work session example]
+image::http://internet.energyresearchlabs.com/data/screen.png[Work session example]
 Fresh proxies in your IRC channel
 
 Tiny script that collects free proxy servers from http://rosinstrument.com[Rosinstrument] RSS, then outputs them to stdout or IRC channel(s).
